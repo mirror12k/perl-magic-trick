@@ -90,10 +90,7 @@ BEGIN { our $VERSION = 0.01 }
 
 
 use Filter::Simple sub {
-	s/hello/goodbye/g;
-
 	compile_ccode($_);
-
 	$_ = '';
 };
 
