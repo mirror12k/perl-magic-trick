@@ -8,6 +8,8 @@ use feature 'say';
 say 'wat';
 use PythonLang;
 
+import sys
+
 def hello_world(who):
     print('this is my function:', who)
     print('there are many like it')
@@ -18,7 +20,9 @@ no PythonLang;
 say "done";
 
 
-
+python::hello_world('asdf');
+python::hello_world('troop');
+python::hello_world(5);
 
 use PythonLang;
 

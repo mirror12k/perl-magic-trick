@@ -17,14 +17,16 @@ sub compile_python_code {
 
 	my $code = shift // die;
 
+
+	foreach my $function ($code =~ /^def\s+(\w+)\s*\(/gm) {
+		eval qq/sub ::python::$function {
+			pylangintegrator::execute_python_function('$function', \$_[0]);
+		}/;
+		say $@ if $@;
+	}
+
 	return "pylangintegrator::execute_python_string(q\@$code\@);";
 
-	# foreach my $method ($code =~ /public\s+static\s+void\s+(\w+)\(/gs) {
-	# 	eval qq/sub ::java::${classname}::$method {
-	# 		jlangintegrator::call_jvm_class_method('$classname', '$method', \$_[0]);
-	# 	}/;
-	# 	say $@ if $@;
-	# }
 
 }
 
