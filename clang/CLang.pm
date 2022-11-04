@@ -57,7 +57,7 @@ WriteMakefile(
 
 
 	mkdir 'build';
-	`rm -rf build/* auto`;
+	`rm -rf build/* auto/ccode`;
 
 	writefile('build/fun.c', $code);
 	writefile('build/ccode.xs', $xs_code);
@@ -72,11 +72,11 @@ BEGIN { our $VERSION = 0.01 }
 	if ($CLang::debug) {
 		say `cd build && perl Makefile.PL`;
 		say `cd build && make`;
-		say `mv build/blib/arch/auto/ .`;
+		say `mv build/blib/arch/auto/* auto/`;
 	} else {
 		`cd build && perl Makefile.PL`;
 		`cd build && make`;
-		`mv build/blib/arch/auto/ .`;
+		`mv build/blib/arch/auto/* auto/`;
 		`rm -rf build`;
 	}
 

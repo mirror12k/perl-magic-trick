@@ -14,7 +14,7 @@ XSLoader::load('jlangintegrator');
 
 jlangintegrator::init_jvm();
 
-
+`rm -f jbuild/*`;
 
 sub writefile { IO::File->new(shift, 'w')->write(shift); }
 
