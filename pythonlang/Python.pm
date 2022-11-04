@@ -1,4 +1,4 @@
-package PythonLang;
+package Python;
 use strict;
 use warnings;
 

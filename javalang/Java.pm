@@ -1,4 +1,4 @@
-package JavaLang;
+package Java;
 use strict;
 use warnings;
 

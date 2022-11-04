@@ -1,4 +1,4 @@
-package CLang;
+package C;
 use strict;
 use warnings;
 
@@ -28,7 +28,7 @@ sub compile_ccode {
 
 #include "fun.c"
 
-MODULE = ccode  PACKAGE = ccode
+MODULE = c  PACKAGE = c
 PROTOTYPES: ENABLE
 
  # XS code goes here
@@ -42,7 +42,7 @@ use 5.008005;
 use ExtUtils::MakeMaker 7.12; # for XSMULTI option
 
 WriteMakefile(
-  NAME           => 'ccode',
+  NAME           => 'c',
   PREREQ_PM      => { 'ExtUtils::MakeMaker' => '7.12' },
   CCFLAGS        => '-Wall -std=c99',
   OPTIMIZE       => '-O3',
@@ -57,13 +57,13 @@ WriteMakefile(
 
 
 	mkdir 'build';
-	`rm -rf build/* auto/ccode`;
+	`rm -rf build/* auto/c`;
 
 	writefile('build/fun.c', $code);
-	writefile('build/ccode.xs', $xs_code);
+	writefile('build/c.xs', $xs_code);
 	writefile('build/Makefile.PL', $makefilepl);
-	writefile('build/ccode.pm', q@
-package ccode;
+	writefile('build/c.pm', q@
+package c;
 BEGIN { our $VERSION = 0.01 }
 1;
 @);
@@ -83,7 +83,7 @@ BEGIN { our $VERSION = 0.01 }
 
 	require XSLoader;
 
-	XSLoader::load('ccode');
+	XSLoader::load('c');
 
 	# say ccode::somefun();
 }

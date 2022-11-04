@@ -6,11 +6,11 @@ use feature 'say';
 
 
 
-use JavaLang;
+use Java;
 
 public class GreeterClass {
     public static void greet(String name) {
-        System.out.println("Hi! " + name);
+        System.out.println("Hi from Java! " + name);
     }
     public static void another(String name) {
         for (int i = 0; i < 5; i++) {
@@ -19,7 +19,7 @@ public class GreeterClass {
     }
 }
 
-no JavaLang;
+no Java;
 
 say "done";
 java::GreeterClass::greet('yes');

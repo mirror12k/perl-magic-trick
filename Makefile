@@ -49,13 +49,13 @@ setup_example:
 	mkdir example/auto
 
 	cd example
-	cp clang/CLang.pm example
+	cp clang/C.pm example
 
 	mv javalang/auto/* example/auto/
-	cp javalang/JavaLang.pm example
+	cp javalang/Java.pm example
 
 	mv pythonlang/auto/* example/auto/
-	cp pythonlang/PythonLang.pm example
+	cp pythonlang/Python.pm example
 
 	mv jslang/auto/* example/auto/
 	cp jslang/JavaScript.pm example
