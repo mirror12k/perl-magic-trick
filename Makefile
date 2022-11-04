@@ -6,6 +6,10 @@ build_all: build_java build_python build_javascript
 
 
 build_node:
+	-git clone https://github.com/nodejs/node.git
+	cd node && git checkout v14.21.0
+	cd node && ./configure --shared
+	cd node && make -j4
 	cd node && make install
 
 build_java:
